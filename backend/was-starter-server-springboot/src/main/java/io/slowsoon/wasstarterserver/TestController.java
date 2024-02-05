@@ -1,4 +1,4 @@
-package io.slowsoon.springbootbackend;
+package io.slowsoon.wasstarterserver;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
