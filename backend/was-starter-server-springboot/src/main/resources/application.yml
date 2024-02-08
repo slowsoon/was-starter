@@ -1,5 +1,5 @@
 spring:
-  jps:
+  jpa:
     show-sql: true
     properties:
       hibernate:
