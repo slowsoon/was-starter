@@ -1,4 +1,4 @@
-package io.slowsoon.wasstarterserver;
+package io.slowsoon.wasstarterserver.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
