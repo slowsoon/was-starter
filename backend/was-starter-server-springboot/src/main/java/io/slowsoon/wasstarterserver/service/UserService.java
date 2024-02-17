@@ -1,12 +1,18 @@
 package io.slowsoon.wasstarterserver.service;
 
-import io.slowsoon.wasstarterserver.data.dto.UserDto;
-import io.slowsoon.wasstarterserver.data.dto.UserResponseDto;
+import io.slowsoon.wasstarterserver.data.dto.ReqAddUser;
+import io.slowsoon.wasstarterserver.data.entity.User;
 import io.slowsoon.wasstarterserver.data.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-public interface UserService {
-    UserResponseDto getUser(Long seq);
-    UserResponseDto saveUser(UserDto userDto);
-    UserResponseDto changeUserName(Long seq, String name) throws Exception;
-    void deleteUser(Long seq) throws Exception;
+@RequiredArgsConstructor
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    public User addUser(ReqAddUser req) {
+        return userRepository.save(req.toEntity());
+    }
+
 }
