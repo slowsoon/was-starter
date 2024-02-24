@@ -6,6 +6,8 @@ import io.slowsoon.wasstarterserver.data.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class UserService {
@@ -13,6 +15,10 @@ public class UserService {
 
     public User addUser(ReqAddUser req) {
         return userRepository.save(req.toEntity());
+    }
+
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
 }

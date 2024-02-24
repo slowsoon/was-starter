@@ -2,28 +2,27 @@ package io.slowsoon.wasstarterserver.data.entity;
 
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 
-@Table(name = "tb_user")
+@Table(name = "tb_role")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
-public class User {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Column(name = "email", unique = true, nullable = false)
-    private String email;
-
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "name", unique = true, nullable = false)
+    private String name;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = true)
@@ -34,8 +33,7 @@ public class User {
     private LocalDateTime updatedAt;
 
     @Builder
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public Role(String name) {
+        this.name = name;
     }
 }
